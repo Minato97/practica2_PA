@@ -14,5 +14,15 @@ class Carrera:
     def llenar_lista_carrera(self):
         carrera = Carrera("Electrónica y computación")
         lista_carreras.append(carrera)
+        carrera = Carrera("Psicología")
+        lista_carreras.append(carrera)
+        carrera = Carrera("Contabilidad")
+        lista_carreras.append(carrera)
+        carrera = Carrera("Administración")
+        lista_carreras.append(carrera)
+        carrera = Carrera("Tecnológias")
+        lista_carreras.append(carrera)
+        carrera = Carrera("Gerontología")
+        lista_carreras.append(carrera)
 
 
