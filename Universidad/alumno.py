@@ -42,6 +42,18 @@ class Alumno:
             print("Matricula: ", alum.matricula, "\nNombre: ", alum.nombre, "\nfecha de nacimiento: ", alum.fecha_nacimiento, "\nFecha de ingreso: ", alum.fecha_ingreso, "\nCiudad de origen: ", alum.ciudad, "\nGenero: ", alum.genero)
             print("\n")
 
+    def llenar_lista_alumno(self):
+        alumno = Alumno(123, "Jose Antonio Fausto Guerrero", datetime.date(1996, 2, 24), datetime.date(1997, 1, 15), "Masculino", "Tala")
+        lista_alumnos.append(alumno)
+        alumno = Alumno(124, "Julio Cesar Preciado Hernandez", datetime.date(1995, 12, 4), datetime.date(1997, 1, 15), "Masculino", "Magdalena")
+        lista_alumnos.append(alumno)
+        alumno = Alumno(125, "Brenda Gutierrez Ramirez", datetime.date(1995, 11, 7), datetime.date(1997, 1, 15), "Femenino", "Magdalena")
+        lista_alumnos.append(alumno)
+        alumno = Alumno(126, "Luis Antonio Lopez Camacho", datetime.date(1997, 5, 16), datetime.date(1997, 1, 15), "Masculino", "Ameca")
+        lista_alumnos.append(alumno)
+        alumno = Alumno(127, "Roxana Uribe Robles", datetime.date(1995, 12, 4), datetime.date(1997, 1, 15), "Masculino", "Guadalajara")
+        lista_alumnos.append(alumno)
+
 
 
 
