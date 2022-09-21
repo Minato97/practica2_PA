@@ -1,5 +1,6 @@
+from Universidad.materia import Materia
 from Universidad.carrera import Carrera
-from Universidad.alumno import Alumno
+from Universidad.alumno import Alumno, lista_alumnos
 
 
 def menu():
@@ -12,11 +13,21 @@ def menu():
         alumno.registrar()
         menu()
     elif opcion == 2:
-        alumno.mostrar()
+        for alum in lista_alumnos:
+            alum.mostrar(alum)
+            print("\n")
         menu()
     elif opcion == 3:
         carrera.mostrar()
         menu()
+    elif opcion == 4:
+        alumno.buscar_alumno()
+        menu()
+#menu()
 
+#menú de materia-----------------------------------------------------------
+def menu_materias():
+    print("Este es el menú de materias")
+    Materia.prueba(1)
 
-menu()
+menu_materias()
