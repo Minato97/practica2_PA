@@ -16,7 +16,7 @@ class Alumno:
 
 
     def registrar(self):
-        print("\nMenú de registro\n")
+        print("\nMenú de registro de alumnos\n")
 
         alumno = Alumno()
         alumno.matricula = int(input("Introduzca su número de matricula: "))

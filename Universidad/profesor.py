@@ -6,7 +6,7 @@ from datetime import date
 
 lista_profesores = list()
 
-class profesor:
+class Profesor:
 
     def __init__(self,no_empleado,nombre,fecha_ingreso):
         self.no_empleado = no_empleado
