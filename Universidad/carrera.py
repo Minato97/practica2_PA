@@ -2,12 +2,40 @@ from Universidad.alumno import Alumno
 from Universidad.materia import Materia
 
 lista_carreras = list()
-
+materia = Materia()
 class Carrera:
 
     def __init__(self,nombre="",materias=[]):
         self.nombre = nombre
-        self.materias = materias
+        self.lista_materias = materias
+
+    def agregarMateria(self):
+        print("\t\t---Agregar Materia ---\n\n")
+        try:
+            nuevo = materia.buscar_alumno()
+            self.lista_alumnos.append(nuevo)
+            print("nuevo alumno agregado a la materia")
+            print(self.lista_alumnos)
+        except:
+            print("error, no se agregó el alumno")
+
+    def eliminarMateria(self):
+        print("\t\t---Eliminar alumno ---\n\n")
+        eliminar = alumno.buscar_alumno()
+        for alum in self.lista_alumnos:
+            try:
+                if eliminar == alum:
+                    self.lista_alumnos.remove(alum)
+                    print(f"Alumno con matricula: {alumno} ha sido eliminado.")
+            except:
+                print("No se encontró el alumno a eliminar")
+
+    def listarMaterias(self):
+        print("\t\t---Listar alumnos ---\n\n")
+        for alum in self.lista_alumnos:
+            print("Matricula: ", alum.matricula, "\nNombre: ", alum.nombre, "\nfecha de nacimiento: ",
+                  alum.fecha_nacimiento, "\nFecha de ingreso: ", alum.fecha_ingreso, "\nCiudad de origen: ",
+                  alum.ciudad, "\nGenero: ", alum.genero)
 
     def mostrar(self):
         for car in lista_carreras:

@@ -38,9 +38,25 @@ class Materia:
     def listarAlumnos(self):
         print("\t\t---Listar alumnos ---\n\n")
         for alum in self.lista_alumnos:
-            print("Matricula: ", alum.matricula, "\nNombre: ", alum.nombre, "\nfecha de nacimiento: ",
-                  alum.fecha_nacimiento, "\nFecha de ingreso: ", alum.fecha_ingreso, "\nCiudad de origen: ",
-                  alum.ciudad, "\nGenero: ", alum.genero)
+            alumno.mostrar(alum)
+            # print("Matricula: ", alum.matricula, "\nNombre: ", alum.nombre, "\nfecha de nacimiento: ",
+            #       alum.fecha_nacimiento, "\nFecha de ingreso: ", alum.fecha_ingreso, "\nCiudad de origen: ",
+            #       alum.ciudad, "\nGenero: ", alum.genero)
+
+    def buscar_materia(self):
+        buscar = input("\nIngrese el nombre de la materia a buscar: ")
+        for mat in lista_materias:
+            if buscar == mat.nombre:
+
+                # print("encontrado")
+                return mat
+            else:
+                print("Materia no encontrada, por favor intentelo de nuevo\n")
+                self.buscar_materia()
+
+    def mostrar(self,materia):
+        print("Nombre: ", materia.nombre, "\nProfesor: ", materia.titular,"\n")
+
 
 
 

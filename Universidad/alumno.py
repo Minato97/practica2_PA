@@ -44,7 +44,8 @@ class Alumno:
         buscar = int(input("\nIngrese la matricula del alumno a buscar: "))
         for alum in lista_alumnos:
             if buscar == alum.matricula:
-                print("encontrado")
+                alum.mostrar()
+                # print("encontrado")
                 return alum
             else:
                 print("Usuario no encontrado, por favor intentelo de nuevo\n")
