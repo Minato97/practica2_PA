@@ -1,8 +1,11 @@
 from Universidad.alumno import Alumno
 
+
 lista_materias = list()
-# numeros = [1, 2, 3]
-# lista_materias.append(numeros)
+materias = ['Multimedia', 'Programación avanzada', 'Cálculo de varias variables', 'Ecuaciones Diferenciales', 
+'Diseño Electrónico Analógico', 'Redes Inalambricas y Móviles', 'Electricidad y Magnetismo']
+lista_materias.append(materias)
+
 alumno = Alumno()
 class Materia:
 
@@ -28,7 +31,7 @@ class Materia:
             try:
                 if eliminar == alum:
                     self.lista_alumnos.remove(alum)
-                    print(f"Alumno con matricula: {alumno} ha sido eliminado.")
+                    print(f"Alumno con matricula: {alum.matricula} ha sido eliminado.")
             except:
                 print("No se encontró el alumno a eliminar")
 
@@ -39,6 +42,5 @@ class Materia:
                   alum.fecha_nacimiento, "\nFecha de ingreso: ", alum.fecha_ingreso, "\nCiudad de origen: ",
                   alum.ciudad, "\nGenero: ", alum.genero)
 
-    def prueba(self):
-        print("instancia")
+
 
