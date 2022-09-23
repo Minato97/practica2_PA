@@ -15,8 +15,8 @@ class Alumno:
         self.ciudad = ciudad
 
 
-    def registrar(self):
-        print("\nMenú de registro de alumnos\n")
+    def registrar_alumno(self):
+        print("\nFormulario de registro de alumnos\n")
 
         alumno = Alumno()
         alumno.matricula = int(input("Introduzca su número de matricula: "))
@@ -36,20 +36,21 @@ class Alumno:
 
         lista_alumnos.append(alumno)
 
-    def mostrar(self,alum):
+    def mostrar_alumno(self,alum):
         print("Matricula: ", alum.matricula, "\nNombre: ", alum.nombre, "\nfecha de nacimiento: ", alum.fecha_nacimiento, "\nFecha de ingreso: ", alum.fecha_ingreso, "\nCiudad de origen: ", alum.ciudad, "\nGenero: ", alum.genero)
 
 
     def buscar_alumno(self):
-        buscar = int(input("\nIngrese la matricula del alumno a buscar: "))
+        buscar = int(input("\nIngrese la matricula del alumno: "))
+        # print(buscar)
         for alum in lista_alumnos:
             if buscar == alum.matricula:
-                alum.mostrar()
-                # print("encontrado")
+                # alum.mostrar()
+                print("encontrado")
                 return alum
-            else:
-                print("Usuario no encontrado, por favor intentelo de nuevo\n")
-                self.buscar_alumno()
+
+        print("Usuario no encontrado, por favor intentelo de nuevo\n")
+        self.buscar_alumno()
 
 
     # def calcularEdad(self, fecha_nacimiento):
@@ -70,4 +71,4 @@ class Alumno:
         lista_alumnos.append(alumno)
 
 
-Alumno.llenar_lista_alumno(lista_alumnos)
+# Alumno.llenar_lista_alumno(lista_alumnos)

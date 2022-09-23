@@ -9,42 +9,58 @@ class Carrera:
 
     def __init__(self,nombre="",materias=[]):
         self.nombre = nombre
-        self.lista_materias = materias
+        self.lista_materias_carrera = materias
 
-    def agregarMateria(self):
-        print("\t\t---Agregar Materia ---\n\n")
+    def registrar_profesor(self):
+        print("\t\n--->Formulario de registro de carreras\n")
+
+        prof = Profesor()
+        prof.no_empleado = int(input("Introduzca su número de trabajador: "))
+        prof.nombre = input("\nIntruduzca su nombre: ")
+        print("\nIngrese su fecha de ingreso:")
         try:
-            nuevo = materia.buscar_alumno()
-            self.lista_alumnos.append(nuevo)
-            print("nuevo alumno agregado a la materia")
-            print(self.lista_alumnos)
+            dia = int(input("\nIntroduzca el dia: "))
+            mes = int(input("\nIntroduzca el mes: "))
+            anio = int(input("\nIntroduzca el año: "))
+            dia = str(dia)
+            mes = str(mes)
+            anio = str(anio)
+            prof.fecha_ingreso = dia + "/" + mes + "/" + anio
+        except TypeError:
+            print("ingrese solo valores numericos")
+        lista_profesores.append(prof)
+
+    def agregarMateria(self,carrera):
+        print("\t\t---Agregar Materia ---\n")
+        try:
+            nuevo = materia.buscar_materia()
+            carrera.lista_materias_carrera.append(nuevo)
+            print("\nNueva materia agregada a la carrera correctamente")
+            # print(self.lista_materias)
         except:
-            print("error, no se agregó el alumno")
+            print("\nError, no se agregó la materia")
 
-    def eliminarMateria(self):
-        print("\t\t---Eliminar alumno ---\n\n")
-        eliminar = alumno.buscar_alumno()
-        for alum in self.lista_alumnos:
+    def eliminarMateria(self,carrera):
+        print("\t\t---Eliminar materia ---\n\n")
+        eliminar = materia.buscar_materia()
+        for mat in carrera.lista_materias_carrera:
             try:
-                if eliminar == alum:
-                    self.lista_alumnos.remove(alum)
-                    print(f"Alumno con matricula: {alumno} ha sido eliminado.")
+                if eliminar == mat:
+                    carrera.lista_materias_carrera.remove(mat)
+                    print(f"La materia con nombre: {mat.nombre} ha sido eliminada de la carera: {carrera.nombre}.")
             except:
-                print("No se encontró el alumno a eliminar")
+                print("No se encontró la materia a eliminar")
 
-    def listarMaterias(self):
-        print("\t\t---Listar alumnos ---\n\n")
-        for alum in self.lista_alumnos:
-            print("Matricula: ", alum.matricula, "\nNombre: ", alum.nombre, "\nfecha de nacimiento: ",
-                  alum.fecha_nacimiento, "\nFecha de ingreso: ", alum.fecha_ingreso, "\nCiudad de origen: ",
-                  alum.ciudad, "\nGenero: ", alum.genero)
-
-    def mostrar(self):
-        cont = 0
+    def mostrar_carreras(self):
         for car in lista_carreras:
-            cont += 1
-            print(f"{cont}: ", car.nombre, "\nlista de materias: ", car.materias)
-            print("\n")
+            print("Nombre: ", car.nombre, "\n")
+
+    def mostrar_materias_carrera(self,carrera):
+        print("\nLas materias registradas en la carrera:\n")
+        for mat in carrera.lista_materias_carrera:
+            mat.mostrar_materias(mat)
+
+
 
     def llenar_lista_carrera(self):
         carrera = Carrera("Electrónica y computación")
@@ -55,81 +71,70 @@ class Carrera:
         lista_carreras.append(carrera)
         carrera = Carrera("Administración")
         lista_carreras.append(carrera)
-        carrera = Carrera("Tecnológias")
+        carrera = Carrera("Tecnologías")
         lista_carreras.append(carrera)
         carrera = Carrera("Gerontología")
         lista_carreras.append(carrera)
 
-    def agregar_Materia(self, materia):
-        pass 
+    def buscar_carrera(self):
+        buscar = input("\nIngrese el nombre de la carrera: ")
+        for car in lista_carreras:
+            if buscar == car.nombre:
+                # print("encontrado")
+                return car
 
-    def eliminar_Materia(self, materia):
-        pass
-
-    def listar_Materias(self, carrera):
-        print(f"\t\t\t\t\t\t\t\t---Carrera de {carrera}---\nLista de Materias: \n")
-        for mat in self.materias:
-            print("Nombre: ", mat.nombre, "\nTitular: ", mat.titular, "\nAlumnos inscritos:\n")
-            #listar_alumnos().Materia()
-        print("\n1.- Registrar nueva materia a la carrera\n2.- Salir\n")
-        try: 
-            opc = int(input())
-            if opc == 1:
-                self.agregar_Materia()
-            elif opc == 2:
-                os.system("cls")
-                self.menu_carrera()
-            else:
-                os.system("cls")
-                self.listar_Materias("Electrónica y Computación")
-        except ValueError:
-            print("ingrese un dato válido")
-            os.system("cls")
-            self.listar_Materias("Electrónica y Computación")
-
-    def menu_carrera(self):
-        print("\t\t\t\t\t\t\t\t---Este es el menú de carreras---\nCarreras actuales:\n")
-        self.mostrar()
-        print("Presione en número de la carrera para ver más opciones\nPresione 7 para salir al menú principal.")
-        try:
-            opc =int(input())
-        except ValueError:
-            print("Ingrese una opcion válida")
-            self.menu_carrera()
-        if opc == 1:
-            os.system("cls")
-            self.listar_Materias("Electrónica y computación")
-        elif opc == 2:
-            os.system("cls")
-            self.listar_Materias("Psicología")
-        elif opc == 3:
-            os.system("cls")
-            self.listar_Materias("Contabilidad")
-        elif opc == 4:
-            os.system("cls")
-            self.listar_Materias("Administración")
-        elif opc == 5:
-            os.system("cls")
-            self.listar_Materias("Tecnológias")
-        elif opc == 6:
-            os.system("cls")
-            self.listar_Materias("Gerontología")
-        elif opc == 7:
-            #salir
-            pass
-        else: 
-            print("Ingrese alguna de las opciones anteriormente mencionadas")
-            os.system("cls")
-            self.menu_carrera()
+        print("Materia no encontrada, por favor intentelo de nuevo\n")
+        self.buscar_carrera()
     
     def getNombre(self):
         return self.nombre
 
     def getMaterias(self):
-        return self.materias
+        return self.lista_materias_carrera
 
     def setNombre(self):
         return self.nombre
 
     def setMaterias(self):
-        return self.materias
+        return self.lista_materias_carrera
+
+    def menu_carrera(self):
+        print("""
+        ---Este es el menú de carreras---
+        Ingrese alguna de las siguientes opciones:
+        1.- Agregar materia a una carrera
+        2.- Eliminar materia de una carrera 
+        3.- Listar materias de una carrera
+        4.- Listar todas las carreras
+        5.- Volver al menú principal
+        """)
+        try:
+            opc = int(input("\n"))
+        except ValueError:
+            print("Ingrese una opción válida")
+            self.menu_carrera()
+        if opc == 1:
+            os.system("cls")
+            carrera = self.buscar_carrera()
+            self.agregarMateria(carrera)
+            self.menu_carrera()
+        elif opc == 2:
+            os.system("cls")
+            carrera = self.buscar_carrera()
+            self.eliminarMateria(carrera)
+            self.menu_carrera()
+        elif opc == 3:
+            os.system("cls")
+            carrera = self.buscar_carrera()
+            self.mostrar_materias_carrera(carrera)
+            self.menu_carrera()
+        elif opc == 4:
+            os.system("cls")
+            self.mostrar_carreras()
+            self.menu_carrera()
+        elif opc == 5:
+
+            pass
+        else:
+            print("Ingrese una de las opciones indicadas anteriormente")
+            self.menu_materias()
