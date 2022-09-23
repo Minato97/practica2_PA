@@ -1,9 +1,10 @@
 import sys
-
+import time
 from Universidad.carrera import Carrera
 from Universidad.materia import Materia
 from Universidad.profesor import Profesor
 from Universidad.alumno import Alumno
+import os
 
 def menu():
     carrera = Carrera()
@@ -20,7 +21,9 @@ def menu():
         1.- Menú carrera
         2.- Menú materia 
         3.- Menú profesor
-        4.- Salir del programa
+        4.- Menú alumno
+        5.- Salir del programa
+        
         """)
     opcion = int(input("\nIngrese una opción: "))
     if opcion == 1:
@@ -40,7 +43,12 @@ def menu():
         alumno.menu_alumno()
         menu()
     elif opcion == 5:
-        sys.exit("\nGracias por usar software de calidad")
+        cadena = "Gracias por usar software de calidad"
+
+        for i in range(0,len(cadena)):
+            print(cadena[i], end="")
+            time.sleep(0.1)
+        sys.exit()
     else:
         os.system("cls")
         print("Ingrese una opción válida.")

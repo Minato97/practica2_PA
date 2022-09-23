@@ -8,7 +8,7 @@ lista_alumnos = list()
 
 class Alumno:
 
-    def _init_(self,matricula="",nombre="",fecha_nacimiento="",fecha_ingreso="",genero="",ciudad=""):
+    def __init__(self,matricula=None,nombre="",fecha_nacimiento="",fecha_ingreso="",genero="",ciudad=""):
         self.matricula = matricula
         self.nombre = nombre
         self.fecha_nacimiento = fecha_nacimiento
