@@ -1,10 +1,11 @@
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 import os
+# from Universidad.materia import Materia
 
 lista_profesores = list()
 
-
+# materia = Materia()
 class Profesor:
 
     def __init__(self, no_empleado=int, nombre=str, fecha_ingreso=str):
@@ -44,9 +45,11 @@ class Profesor:
             self.mostrar()
             self.menu_profesor()
         elif opc == 3:
-            prof = input("ingrese el nombre completo del profesor a calcular su edad: ")
+            prof = input("Ingrese el nombre completo del profesor a calcular su edad: ")
             self.calcular_antiguedad(prof)
             print(prof)
+        elif opc == 4:
+            pass
         else:
             os.system("cls")
             print("Ingrese una opción válida.")
@@ -76,6 +79,17 @@ class Profesor:
         for prof in lista_profesores:
             print("No.Empleado:", prof.no_empleado, "\nNombre:", prof.nombre, "\nFecha de ingreso:", prof.fecha_ingreso,
                   "\n")
+    def buscar_profesor(self):
+        buscar = int(input("\nIngrese el número de empleado: "))
+        # print(buscar)
+        for prof in lista_profesores:
+            if buscar == prof.no_empleado:
+                # alum.mostrar()
+                print("encontrado")
+                return prof
+
+        print("Profesor no encontrado\n")
+        # materia.menu_materias()
 
     def calcular_antiguedad(self, nombre_profesor):
         for prof in lista_profesores:

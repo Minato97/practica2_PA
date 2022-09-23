@@ -1,10 +1,13 @@
 from Universidad.alumno import Alumno
 import os
+from Universidad.profesor import Profesor
 # import main
 # from main import menu
 lista_materias = list()
 
 alumno = Alumno()
+# carrera = Carrera()
+profesor = Profesor()
 
 class Materia:
 
@@ -12,6 +15,19 @@ class Materia:
         self.nombre = nombre
         self.titular = titular
         self.lista_alumnos = lista_alumnos
+
+    def registrar_materia(self):
+        print("\t\n--->Formulario de registro de materias\n")
+
+        materia = Materia()
+        materia.nombre = input("\nIntruduzca el nombre de la materia: ")
+        lista_materias.append(materia)
+
+    def asignar_titular(self,materia):
+        if materia.titular == "":
+            profe = profesor.buscar_profesor()
+            materia.titular = profe.nombre
+
 
     def llenar_lista_materia(self):
         materia = Materia("Multimedia", "Carlos Verdín")
@@ -56,8 +72,8 @@ class Materia:
             if buscar == mat.nombre:
                 # print("encontrado")
                 return mat
-        print("Materia no encontrada, por favor intentelo de nuevo\n")
-        self.buscar_materia()
+        print("Materia no encontrada\n")
+        # carrera.buscar_materia()
 
     def mostrar_materias(self,mat):
         print("Nombre: ", mat.nombre, "\nProfesor: ", mat.titular,"\n")
@@ -77,7 +93,9 @@ class Materia:
         2.- Eliminar alumno de una materia 
         3.- Listar alumnos los alumnos inscritos a una materia
         4.- Listar todas la materias
-        5.- Volver al menú principal
+        5.- Registrar una nueva materia en el sistema
+        6.- Asignar profesor a la materia
+        7.- Volver al menú principal
         """)
         try:
             opc = int(input())
@@ -106,7 +124,14 @@ class Materia:
                 self.mostrar_materias(mat)
             self.menu_materias()
         elif opc == 5:
-
+            os.system("cls")
+            self.registrar_materia()
+            self.menu_materias()
+        elif opc == 6:
+            os.system("cls")
+            materia = self.buscar_materia()
+            self.asignar_titular(materia)
+        elif opc == 7:
             pass
         else:
             print("Ingrese una de las opciones indicadas anteriormente")

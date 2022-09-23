@@ -26,13 +26,23 @@ def menu():
     if opcion == 1:
         #---MENÚ CARRERA---#
         carrera.menu_carrera()
+        menu()
     elif opcion == 2:
         #---MENÚ MATERIA---#
         materia.menu_materias()
+        menu()
     elif opcion == 3:
         #---MENÚ PROFESOR---#
         profesor.menu_profesor()
-        pass
+        menu()
     elif opcion == 4:
+        #---MENÚ Alumno---#
+        alumno.menu_alumno()
+        menu()
+    elif opcion == 5:
         sys.exit("\nGracias por usar software de calidad")
+    else:
+        os.system("cls")
+        print("Ingrese una opción válida.")
+        menu()
 menu()

@@ -11,24 +11,12 @@ class Carrera:
         self.nombre = nombre
         self.lista_materias_carrera = materias
 
-    def registrar_profesor(self):
+    def registrar_carrera(self):
         print("\t\n--->Formulario de registro de carreras\n")
 
-        prof = Profesor()
-        prof.no_empleado = int(input("Introduzca su número de trabajador: "))
-        prof.nombre = input("\nIntruduzca su nombre: ")
-        print("\nIngrese su fecha de ingreso:")
-        try:
-            dia = int(input("\nIntroduzca el dia: "))
-            mes = int(input("\nIntroduzca el mes: "))
-            anio = int(input("\nIntroduzca el año: "))
-            dia = str(dia)
-            mes = str(mes)
-            anio = str(anio)
-            prof.fecha_ingreso = dia + "/" + mes + "/" + anio
-        except TypeError:
-            print("ingrese solo valores numericos")
-        lista_profesores.append(prof)
+        carrera = Carrera()
+        carrera.nombre = input("\nIntruduzca el nombre de la carrera: ")
+        lista_carreras.append(carrera)
 
     def agregarMateria(self,carrera):
         print("\t\t---Agregar Materia ---\n")
@@ -83,8 +71,8 @@ class Carrera:
                 # print("encontrado")
                 return car
 
-        print("Materia no encontrada, por favor intentelo de nuevo\n")
-        self.buscar_carrera()
+        print("Carrera no encontrada\n")
+        self.menu_carrera()
     
     def getNombre(self):
         return self.nombre
@@ -106,7 +94,8 @@ class Carrera:
         2.- Eliminar materia de una carrera 
         3.- Listar materias de una carrera
         4.- Listar todas las carreras
-        5.- Volver al menú principal
+        5.- Agregar una nueva carrera en el sistema
+        6.- Volver al menú principal
         """)
         try:
             opc = int(input("\n"))
@@ -133,8 +122,13 @@ class Carrera:
             self.mostrar_carreras()
             self.menu_carrera()
         elif opc == 5:
-
+            os.system("cls")
+            self.registrar_carrera()
+            self.menu_carrera()
+        elif opc == 6:
             pass
         else:
-            print("Ingrese una de las opciones indicadas anteriormente")
-            self.menu_materias()
+            os.system("cls")
+            print("Ingrese una opción válida.")
+            self.menu_carrera()
+        return
