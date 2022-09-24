@@ -1,12 +1,9 @@
 from Universidad.alumno import Alumno
 import os
 from Universidad.profesor import Profesor
-# import main
-# from main import menu
-lista_materias = list()
 
+lista_materias = list()
 alumno = Alumno()
-# carrera = Carrera()
 profesor = Profesor()
 
 class Materia:
@@ -28,7 +25,6 @@ class Materia:
             profe = profesor.buscar_profesor()
             materia.titular = profe.nombre
 
-
     def llenar_lista_materia(self):
         materia = Materia("Multimedia", "Carlos Verdín")
         lista_materias.append(materia)
@@ -46,11 +42,11 @@ class Materia:
     def agregarAlumno(self,materia):
         print("\t\t---Agregar alumno ---\n\n")
         try:
+            print("--> Alumnos registrados: \n")
+            alumno.listar_alumnos_registrados()
             nuevo = alumno.buscar_alumno()
-            print(nuevo)
             materia.lista_alumnos.append(nuevo)
-            print("\nNuevo alumno inscrito a la materia")
-            # print(materia.lista_alumnos)
+            print(f"\nNuevo alumno inscrito a {materia.nombre}")
         except:
             print("\nError, no se pudo inscribir el alumno a la materia")
 
@@ -67,31 +63,36 @@ class Materia:
 
 
     def buscar_materia(self):
+        self.mostrar_materias_totales()
         buscar = input("\nIngrese el nombre de la materia: ")
         for mat in lista_materias:
             if buscar == mat.nombre:
-                # print("encontrado")
                 return mat
         print("Materia no encontrada\n")
-        # carrera.buscar_materia()
 
     def mostrar_materias(self,mat):
-        print("Nombre: ", mat.nombre, "\nProfesor: ", mat.titular,"\n")
-            # self.mostrar_alumnos_inscritos(mat)
+        print("Nombre: ", mat.nombre, "\nProfesor: ", mat.titular, "\nAlumnos Registrados: ","\n")
+        for alum in mat.lista_alumnos:
+            alum.mostrar_alumno(alum)
+
+    def mostrar_materias_totales(self):
+        for mat in lista_materias:
+            print("\nNombre:", mat.nombre, "\nTitular:", mat.titular,  "\n")
 
     def mostrar_alumnos_inscritos(self,materia):
-        print("\nLos alumnos inscritos a la materia son:\n")
         for alum in materia.lista_alumnos:
             alum.mostrar_alumno(alum)
 
 
     def menu_materias(self):
         print("""
-        ---Este es el menú de materias---
+                    <---Este es el menú de materias--->
+
         Ingrese alguna de las siguientes opciones:
+
         1.- Agregar alumno a una materia
         2.- Eliminar alumno de una materia 
-        3.- Listar alumnos los alumnos inscritos a una materia
+        3.- Listar alumnos inscritos a una materia
         4.- Listar todas la materias
         5.- Registrar una nueva materia en el sistema
         6.- Asignar profesor a la materia
@@ -105,7 +106,6 @@ class Materia:
         if opc == 1:
             os.system("cls")
             materia = self.buscar_materia()
-            print(materia)
             self.agregarAlumno(materia)
             self.menu_materias()
         elif opc == 2:
@@ -120,8 +120,7 @@ class Materia:
             self.menu_materias()
         elif opc == 4:
             os.system("cls")
-            for mat in lista_materias:
-                self.mostrar_materias(mat)
+            self.mostrar_materias_totales()
             self.menu_materias()
         elif opc == 5:
             os.system("cls")

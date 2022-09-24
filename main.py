@@ -16,7 +16,7 @@ def menu():
     materia.llenar_lista_materia()
     profesor.llenar_lista_profesor()
     print("""
-        ---Este es el menú principal---
+                            <---Este es el menú principal--->
         Ingrese alguna de las siguientes opciones:
         1.- Menú carrera
         2.- Menú materia 
@@ -29,18 +29,22 @@ def menu():
     if opcion == 1:
         #---MENÚ CARRERA---#
         carrera.menu_carrera()
+        os.system("cls")
         menu()
     elif opcion == 2:
         #---MENÚ MATERIA---#
         materia.menu_materias()
+        os.system("cls")
         menu()
     elif opcion == 3:
         #---MENÚ PROFESOR---#
         profesor.menu_profesor()
+        os.system("cls")
         menu()
     elif opcion == 4:
         #---MENÚ Alumno---#
         alumno.menu_alumno()
+        os.system("cls")
         menu()
     elif opcion == 5:
         cadena = "Gracias por usar software de calidad"

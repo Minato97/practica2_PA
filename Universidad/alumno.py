@@ -76,8 +76,11 @@ class Alumno:
     def mostrar_alumno(self,alum):
         print("Matricula: ", alum.matricula, "\nNombre: ", alum.nombre, "\nfecha de nacimiento: ", alum.fecha_nacimiento, "\nFecha de ingreso: ", alum.fecha_ingreso, "\nCiudad de origen: ", alum.ciudad, "\nGenero: ", alum.genero, "\n")
 
+    def listar_alumnos_registrados(self):
+        for alumn in lista_alumnos:
+            self.mostrar_alumno(alumn)
+
     def buscar_alumno(self):
-        os.system("cls")
         buscar = int(input("\nIngrese la matricula del alumno: "))
         for alum in lista_alumnos:
             if buscar == alum.matricula:

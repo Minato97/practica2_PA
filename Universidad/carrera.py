@@ -24,7 +24,6 @@ class Carrera:
             nuevo = materia.buscar_materia()
             carrera.lista_materias_carrera.append(nuevo)
             print("\nNueva materia agregada a la carrera correctamente")
-            # print(self.lista_materias)
         except:
             print("\nError, no se agregó la materia")
 
@@ -48,8 +47,6 @@ class Carrera:
         for mat in carrera.lista_materias_carrera:
             mat.mostrar_materias(mat)
 
-
-
     def llenar_lista_carrera(self):
         carrera = Carrera("Electrónica y computación")
         lista_carreras.append(carrera)
@@ -65,45 +62,36 @@ class Carrera:
         lista_carreras.append(carrera)
 
     def buscar_carrera(self):
+        self.mostrar_carreras()
         buscar = input("\nIngrese el nombre de la carrera: ")
         for car in lista_carreras:
             if buscar == car.nombre:
-                # print("encontrado")
                 return car
 
         print("Carrera no encontrada\n")
         self.menu_carrera()
-    
-    def getNombre(self):
-        return self.nombre
-
-    def getMaterias(self):
-        return self.lista_materias_carrera
-
-    def setNombre(self):
-        return self.nombre
-
-    def setMaterias(self):
-        return self.lista_materias_carrera
 
     def menu_carrera(self):
         print("""
         ---Este es el menú de carreras---
         Ingrese alguna de las siguientes opciones:
+
         1.- Agregar materia a una carrera
         2.- Eliminar materia de una carrera 
         3.- Listar materias de una carrera
         4.- Listar todas las carreras
         5.- Agregar una nueva carrera en el sistema
         6.- Volver al menú principal
+
         """)
         try:
-            opc = int(input("\n"))
+            opc = int(input())
         except ValueError:
             print("Ingrese una opción válida")
             self.menu_carrera()
         if opc == 1:
             os.system("cls")
+            print("\t\t\n-->Materias Disponibles: \n")
             carrera = self.buscar_carrera()
             self.agregarMateria(carrera)
             self.menu_carrera()
